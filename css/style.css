@@ -1,0 +1,81 @@
+
+body {
+    background-color: whitesmoke!important;
+}
+.roboto{
+    font-family:Montserrat;
+    font-size: .9rem;
+}
+.blue-text{
+    font-family:Montserrat;
+    font-size: .9rem;
+    color: steelblue;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+#apply-btn:focus{
+    background-color:rgba(14,210,165);
+    color:white;
+}
+#reset-btn:focus{
+    background-color:rgba(14,210,165);
+    color:white;
+}
+.roboto-sm{
+    font-family:Montserrat;
+    font-size: .75rem;
+    color: rgb(143, 140, 140);
+    font-weight: bold;
+}
+.bottom-border{
+    border-bottom: 1rem solid gray;
+}
+
+
+.block{
+    display: block;
+}
+
+
+/* color change */
+.product-nav{
+    position:relative;
+}
+.product-nav label{
+    display: inline-block;
+    width: 1vmax;
+    height: 1vmax;
+    background-color: brown;
+    border-radius: 50%;
+    cursor:pointer;
+}
+.product-nav label + label{
+    margin-left: .5em;
+}
+
+.background{
+    color:brown;
+}
+
+
+.product-nav label:nth-of-type(1),#color-1:checked ~ .product::after{
+    background-color: brown;
+}
+.product-nav label:nth-of-type(2),#color-2:checked ~ .product::after{
+    background-color: blueviolet;
+}
+.product-nav label:nth-of-type(3),#color-3:checked ~ .product::after{
+    background-color: greenyellow;
+}
+
+
+.product::after{
+    content: "";
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    mix-blend-mode: hue;
+}

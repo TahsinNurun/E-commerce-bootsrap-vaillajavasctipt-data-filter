@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <title>E-commerce-bootstrap-vanillaJavascript-data-filter</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- topbar -->
+    <section id="top-bar" class="my-auto w-90">
+
+        <div class="m-4 rounded bg-light shadow px-0 g-0">
+            <div class="container rounded g-0 ">
+                <div class="row gx-1">
+
+                    <div class="col-md-2  d-flex justify-content-center align-items-center">
+                        <button class="text-white text-uppercase roboto bg-danger w-100 p-3 border-0"><i
+                                class="fas fa-angle-left"></i>hide filter</button>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="container">
+                            <div class="row g-1 align-self-center">
+                                <div class="col-md-2">
+                                    <select id="sort-by" onchange="sortBy()" class="form-select" aria-label="Default select example">
+                                        <option selected>sort by</option>
+                                        <option value="male">male</option>
+                                        <option value="female">female</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="input-group">
+                                        <div class="input-group-text">products:</div>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>12</option>
+                                            <option value="1">18</option>
+                                            <option value="2">24</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 justify-content-between d-flex align-items-center">
+                                    <div class="">
+                                        <p class="fw-bolder roboto">18 from 200</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <button><i class="fas fa-angle-left"></i></button>
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><i class="fas fa-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product -->
+    <section>
+        <div class="container">
+            <div class="row g-0">
+
+                <div class="col-md-3 my-2">
+                    <div class="card border-light mb-3" style="max-width: 16rem;">
+                        <div class="border-bottom">
+                            <div class="d-flex justify-content-center align-items-center rounded g-0 px-3">
+                                <button id="reset-btn" class="border-0 p-1 w-50">Reset</button>
+                                <button id="apply-btn" class="border-0 p-1 w-50" onclick="filter()">Apply</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        New
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Sale
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body border-bottom">
+                            <h5 class="card-title blue-text">OuterWear</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Jumpsuit">
+                                <label class="form-check-label" for="Jumpsuit">
+                                   Jumpsuit
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="jacket">
+                                <label class="form-check-label" for="jacket">
+                                   Jacket
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="coat">
+                                <label class="form-check-label" for="coat">
+                                   coat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="raincoat">
+                                <label class="form-check-label" for="raincoat">
+                                   Raincoat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="handbag">
+                                <label class="form-check-label" for="handbag">
+                                   Handbag
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="belt">
+                                <label class="form-check-label" for="belt">
+                                   Belt
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Season</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Summer">
+                                <label class="form-check-label" for="Summer">
+                                   Summer
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Summer">
+                                <label class="form-check-label" for="Summer">
+                                   Winter
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Summer">
+                                <label class="form-check-label" for="Summer">
+                                   Spring
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Summer">
+                                <label class="form-check-label" for="Summer">
+                                   Autumn
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9 d-flex flex-wrap" id="all-products">
+
+                    <!-- card-1 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (1).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-2 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Belts for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (2).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-3 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Jacket for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (3).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-4 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Jacket for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (4).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-5 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirt for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (5).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Sizes</p>
+                            <div class="d-flex justify-content-center my-1">
+                                <p class="card-text roboto-sm text-center my-0 mx-1">80</p>
+                                <p class="card-text roboto-sm text-center my-0 mx-1">92</p>
+                                <p class="card-text roboto-sm text-center my-0 mx-1">102</p>
+                                <p class="card-text roboto-sm text-center my-0 mx-1">106</p>
+                            </div>
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-6 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirt for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (6).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-7 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (7).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-8 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (8).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-9 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Coat for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (9).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-10 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (10).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-11 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Raincoat for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (11).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-12 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (12).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-13 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (13).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-14 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (14).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-15 -->
+                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (15).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>
