@@ -6,6 +6,9 @@ body {
     font-family:Montserrat;
     font-size: .9rem;
 }
+.light-gray{
+    background-color: rgb(194, 194, 194);
+}
 .blue-text{
     font-family:Montserrat;
     font-size: .9rem;

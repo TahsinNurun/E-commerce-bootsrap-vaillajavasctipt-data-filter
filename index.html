@@ -40,17 +40,17 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="input-group">
-                                        <div class="input-group-text">products:</div>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>12</option>
-                                            <option value="1">18</option>
-                                            <option value="2">24</option>
+                                        <div class="input-group-text bg-white">products:</div>
+                                        <select class="form-select light-gray" onchange="loadProduct(this.value)" aria-label="Default select example">
+                                            <option value="6" selected>6</option>
+                                            <option value="12">12</option>
+                                            <option value="18">18</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-8 justify-content-between d-flex align-items-center">
                                     <div class="">
-                                        <p class="fw-bolder roboto">18 from 200</p>
+                                        <p class="fw-bolder roboto">6 from 18</p>
                                     </div>
                                     <div class="d-flex">
                                         <button><i class="fas fa-angle-left"></i></button>
@@ -69,6 +69,8 @@
             </div>
         </div>
     </section>
+
+
     <!-- product -->
     <section>
         <div class="container">
@@ -166,11 +168,11 @@
                     </div>
                 </div>
 
-
+<!-- all cards -->
                 <div class="col-md-9 d-flex flex-wrap" id="all-products">
 
                     <!-- card-1 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
                         <div class="back">
@@ -200,7 +202,7 @@
                         </div>
                     </div>
                     <!-- card-2 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Belts for Men</h4>
                         <div class="back">
@@ -230,7 +232,7 @@
                         </div>
                     </div>
                     <!-- card-3 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Jacket for Women</h4>
                         <div class="back">
@@ -260,7 +262,7 @@
                         </div>
                     </div>
                     <!-- card-4 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Jacket for Men</h4>
                         <div class="back">
@@ -290,7 +292,7 @@
                         </div>
                     </div>
                     <!-- card-5 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirt for Men</h4>
                         <div class="back">
@@ -327,7 +329,7 @@
                         </div>
                     </div>
                     <!-- card-6 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirt for Women</h4>
                         <div class="back">
@@ -357,7 +359,7 @@
                         </div>
                     </div>
                     <!-- card-7 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
                         <div class="back">
@@ -387,7 +389,7 @@
                         </div>
                     </div>
                     <!-- card-8 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
                         <div class="back">
@@ -417,7 +419,7 @@
                         </div>
                     </div>
                     <!-- card-9 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Coat for Women</h4>
                         <div class="back">
@@ -447,7 +449,7 @@
                         </div>
                     </div>
                     <!-- card-10 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
                         <div class="back">
@@ -477,7 +479,7 @@
                         </div>
                     </div>
                     <!-- card-11 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Raincoat for Women</h4>
                         <div class="back">
@@ -507,7 +509,7 @@
                         </div>
                     </div>
                     <!-- card-12 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
                         <div class="back">
@@ -537,7 +539,7 @@
                         </div>
                     </div>
                     <!-- card-13 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 male"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
                         <div class="back">
@@ -567,7 +569,7 @@
                         </div>
                     </div>
                     <!-- card-14 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
                         <div class="back">
@@ -597,7 +599,7 @@
                         </div>
                     </div>
                     <!-- card-15 -->
-                    <div class="card d-flex align-items-center p-3 justify-content-between m-2 female"
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
                         style="width: 18rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
                         <div class="back">
@@ -626,7 +628,96 @@
                             </div>
                         </div>
                     </div>
+                    <!-- card-16 -->
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Coat for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (16).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
 
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-17 -->
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Raincoat for Men</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (17).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-18 -->
+                    <div class="d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 18rem;">
+                        <h4 class="card-title fw-bolder roboto">Raicoat for Women</h4>
+                        <div class="back">
+                            <input type="radio" name="color" id="color-1" hidden checked>
+                            <input type="radio" name="color" id="color-2" hidden>
+                            <input type="radio" name="color" id="color-3" hidden>
+                            <div class="pro">
+                                <img src="images/img (18).png" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+
+                        <div class="d-block align-items-center justify-content-center">
+                            <p class="card-text roboto-sm text-center my-0">Available Colors</p>
+                            <div>
+                                <div class="product-nav text-center">
+                                    <label for="color-1"></label>
+                                    <label for="color-2"></label>
+                                    <label for="color-3"></label>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-danger fw-light px-2"><span
+                                        style="color: gray; text-decoration: line-through">5500
+                                        uah</span></h5>
+                                <h5>4500uah</h5>
+                            </div>
+                        </div>
+                    </div>                  
 
                 </div>
             </div>
