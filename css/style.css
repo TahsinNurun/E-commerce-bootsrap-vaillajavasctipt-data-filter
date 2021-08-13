@@ -2,6 +2,20 @@
 body {
     background-color: whitesmoke!important;
 }
+.topbar{
+    height: 4rem;
+}
+.or-color {
+    background-color:#f68857;
+}
+.container-90{
+    width: 95%;
+    margin: 0 auto;
+}
+.border-radius{
+    
+    
+}
 .roboto{
     font-family:Montserrat;
     font-size: .9rem;
