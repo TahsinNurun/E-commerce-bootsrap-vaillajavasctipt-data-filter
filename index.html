@@ -32,11 +32,12 @@
 
                         <div class="row my-auto d-flex align-items-center justify-content-center">
                             <div class="col-md-2">
-                                <select id="sort-by" onchange="sortBy()" class="form-select"
+                                <select id="sort-by" onchange="sortBy(this.value)" class="form-select"
                                     aria-label="Default select example">
                                     <option selected>sort by</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
+                                    <option value="female">male</option>
+                                    <option value="male">female</option>
+                                    <option value="both">both</option>
                                 </select>
                             </div>
                             <div class="col-md-2">
@@ -44,7 +45,8 @@
                                     <div class="input-group-text bg-white">products:</div>
                                     <select class="form-select light-gray" onchange="loadProduct(this.value)"
                                         aria-label="Default select example">
-                                        <option value="6" selected>6</option>
+                                        <option value="3">3</option>
+                                        <option value="6">6</option>
                                         <option value="12">12</option>
                                         <option value="18">18</option>
                                     </select>
@@ -83,16 +85,16 @@
                         <div class="card-body border-bottom">
                             <div class="d-flex justify-content-center align-items-center  mb-3">
                                 <button id="reset-btn" class="border-0 rounded-start p-1 w-50">Reset</button>
-                                <button id="apply-btn" class="border-0 rounded-end p-1 w-50">Apply</button>
+                                <button id="apply-btn" class="border-0 rounded-end p-1 w-50" onclick="filter()">Apply</button>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="new" id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="new" id="new">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     New
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="sale" id="flexCheckChecked">
+                                <input class="form-check-input" type="checkbox" value="sale" id="sale">
                                 <label class="form-check-label" for="flexCheckChecked">
                                     Sale
                                 </label>
@@ -102,8 +104,8 @@
                         <div class="card-body border-bottom">
                             <h5 class="card-title blue-text">OuterWear</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="Jumpsuit">
-                                <label class="form-check-label" for="Jumpsuit">
+                                <input class="form-check-input" type="checkbox" value="" id="jumpsuit">
+                                <label class="form-check-label" for="jumpsuit">
                                     Jumpsuit
                                 </label>
                             </div>
@@ -137,30 +139,37 @@
                                     Belt
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="tshirt">
+                                <label class="form-check-label" for="tshirt">
+                                    Tshirt
+                                </label>
+                            </div>
+                            
                         </div>
                         <div class="card-body">
                             <h5 class="card-title blue-text">Season</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="Summer">
-                                <label class="form-check-label" for="Summer">
+                                <input class="form-check-input" type="checkbox" value="" id="summer">
+                                <label class="form-check-label" for="summer">
                                     Summer
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="Summer">
-                                <label class="form-check-label" for="Summer">
+                                <input class="form-check-input" type="checkbox" value="" id="winter">
+                                <label class="form-check-label" for="winter">
                                     Winter
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="Summer">
-                                <label class="form-check-label" for="Summer">
+                                <input class="form-check-input" type="checkbox" value="" id="spring">
+                                <label class="form-check-label" for="spring">
                                     Spring
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="Summer">
-                                <label class="form-check-label" for="Summer">
+                                <input class="form-check-input" type="checkbox" value="" id="autumn">
+                                <label class="form-check-label" for="autumn">
                                     Autumn
                                 </label>
                             </div>
@@ -173,9 +182,9 @@
                 <div class="col-md-9 d-flex justify-content-between flex-wrap container" id="all-products">
 
                     <!-- card-1 -->
-                    <div data-type="new"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div  
+                        class="new summer handbag d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -204,9 +213,9 @@
                         </div>
                     </div>
                     <!-- card-2 -->
-                    <div data-type="new"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div  
+                        class="new winter belt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Belts for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -235,9 +244,9 @@
                         </div>
                     </div>
                     <!-- card-3 -->
-                    <div data-type="sale"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div   
+                        class="new spring jacket d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Jacket for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -266,9 +275,9 @@
                         </div>
                     </div>
                     <!-- card-4 -->
-                    <div data-type="sale"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div   
+                        class="new autumn  d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Jacket for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -297,9 +306,9 @@
                         </div>
                     </div>
                     <!-- card-5 -->
-                    <div data-type="new"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div  
+                        class="sale summer  d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirt for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -335,9 +344,9 @@
                         </div>
                     </div>
                     <!-- card-6 -->
-                    <div data-type="new"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div  
+                        class="sale winter tshirt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirt for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -366,9 +375,9 @@
                         </div>
                     </div>
                     <!-- card-7 -->
-                    <div data-type="sale"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div   
+                        class="sale spring jumpsuit d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -397,9 +406,9 @@
                         </div>
                     </div>
                     <!-- card-8 -->
-                    <div data-type="sale"
-                        class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div   
+                        class="sale autumn tshirt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -428,8 +437,8 @@
                         </div>
                     </div>
                     <!-- card-9 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="sale summer coat d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Coat for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -458,8 +467,8 @@
                         </div>
                     </div>
                     <!-- card-10 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="new winter handbag d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Hand Bag for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -488,8 +497,8 @@
                         </div>
                     </div>
                     <!-- card-11 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="new autumn raincoat d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Raincoat for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -518,8 +527,8 @@
                         </div>
                     </div>
                     <!-- card-12 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div class="sale summer tshirt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -548,8 +557,8 @@
                         </div>
                     </div>
                     <!-- card-13 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div class="new winter tshirt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -578,8 +587,8 @@
                         </div>
                     </div>
                     <!-- card-14 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="sale spring jumpsuit d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Jumpsuit for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -608,8 +617,8 @@
                         </div>
                     </div>
                     <!-- card-15 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="new autumn tshirt d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Tshirts for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -638,8 +647,8 @@
                         </div>
                     </div>
                     <!-- card-16 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div class="sale summer coat d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Coat for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -668,8 +677,8 @@
                         </div>
                     </div>
                     <!-- card-17 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 female"
-                        style="width: 18rem;">
+                    <div class="sale winter  d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 female"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Raincoat for Men</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>
@@ -698,8 +707,8 @@
                         </div>
                     </div>
                     <!-- card-18 -->
-                    <div class="flex-grow-1 d-none card d-flex align-items-center p-3 justify-content-between m-2 male"
-                        style="width: 18rem;">
+                    <div class="sale autumn  d-none flex-grow-1 card d-flex align-items-center p-3 justify-content-between m-2 male"
+                        style="width: 20rem;">
                         <h4 class="card-title fw-bolder roboto">Raicoat for Women</h4>
                         <div class="back">
                             <input type="radio" name="color" id="color-1" hidden checked>

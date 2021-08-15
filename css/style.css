@@ -12,9 +12,8 @@ body {
     width: 95%;
     margin: 0 auto;
 }
-.border-radius{
-    
-    
+.hidden-display{
+    display: none !important;
 }
 .roboto{
     font-family:Montserrat;
@@ -50,9 +49,6 @@ body {
 }
 
 
-.block{
-    display: block;
-}
 
 
 /* color change */
